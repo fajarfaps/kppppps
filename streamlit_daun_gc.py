@@ -14,7 +14,6 @@ model2 = load_model('/content/model_paru.h5')
 class_labels = ['normal', 'tubercolusis', 'pneunomia']
 
 # Fungsi untuk halaman Home
-# Fungsi untuk halaman Home
 def home_page():
     st.header("Selamat Datang di Halaman Home, Mate!", divider='rainbow')
     multi = ''' Aplikasi ini akan membantu kalian untuk memprediksi atau menentukan kesehatan sayuran pada pertanian. Kalian dapat melihat hasil prediksi dengan cara memilih foto sayuran yang akan ditentukan kesehatan, persentase kecocokan, dan deskripsi kesehatannya. Aplikasi ini diharapkan dapat membantu sektor pertanian untuk menentukan kesehatan sayurannya sehingga dapat menentukan apakah sayuran itu akan layak untuk diperjual belikan atau tidak.'''
@@ -81,14 +80,14 @@ def home_page():
     col1.write(" ")
     with col1:
         st.write("Accuracy per EPOCH")
-        image = Image.open('/content/image_daun/acc_epoch.jpg')
+        image = Image.open('/content/acc_epoch.jpg')
         st.image(image, caption='', use_column_width=True)
         st.markdown("<p class='image-caption'>Pada table tersebut terdapat keterangan berupa tingkatan akurasinya yang memiliki nilai hampir 1 atau 100 persen.</p>", unsafe_allow_html=True)
 
     col3.write(" ")
     with col3:
         st.write("Loss per EPOCH")
-        image = Image.open('/content/image_daun/loss_epoch.jpg')
+        image = Image.open('/content/loss_epoch.jpg')
         st.image(image, caption='', use_column_width=True)
         st.markdown("<p class='image-caption'>Pada table tersebut terdapat keterangan berupa tingkatan Loss akurasi yang memiliki nilai hampir 1 atau 100 persen.</p>", unsafe_allow_html=True)
 
@@ -134,7 +133,7 @@ def predictions_page():
 def about_us_page():
     st.title("Halaman About Us")
     # Tambahkan konten atau informasi tentang tim pengembang atau Anda di sini
-# Fungsi untuk footer
+
 # Fungsi untuk footer
 def footer():
     st.title(" ")
@@ -168,7 +167,7 @@ def footer():
 
 # Konfigurasi halaman Streamlit
 st.set_page_config(page_title="VEGE HEALTH")
-st.sidebar.title("Welcome Mate!")
+st.sidebar.title("Welcome!")
 options = ["Home", "Vegetable Health Predictions", "About Us"]
 selection = st.sidebar.selectbox("Yuk Explore !", options)
 # Tampilkan konten sesuai dengan pilihan
