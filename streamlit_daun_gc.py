@@ -54,7 +54,7 @@ def home_page():
     col1.write(" ")
     with col1:
         st.write("Vocab Image")
-        image = Image.open('/content/sample_data/image_daun/vocab.jpg')
+        image = Image.open('/content/vocab.jpg')
         st.image(image, caption="", use_column_width=True)
         st.markdown("<p class='image-caption'>Gambar di atas merupakan representasi dari split data model machine learning yang di mana pembagian pengujian yaitu 85:15. 85 persen untuk Training Samples dan 15 persen untuk Test Samples.</p>", unsafe_allow_html=True)
 
@@ -62,7 +62,7 @@ def home_page():
     col2.write(" ")
     with col2:
         st.write("Confusion Image")
-        image = Image.open('/content/sample_data/image_daun/confus.jpg')
+        image = Image.open('/content/confus.jpg')
         st.image(image, caption='', use_column_width=True)
         st.markdown("<p class='image-caption'>Gambar yang berisikan tentang Skor Kepercayaan pada class dan prediksinya.</p>", unsafe_allow_html=True)
 
@@ -70,7 +70,7 @@ def home_page():
     col3.write(" ")
     with col3:
         st.write("Accuracy Class Image")
-        image = Image.open('/content/sample_data/image_daun/acc_class.jpg')
+        image = Image.open('/content/acc_class.jpg')
         st.image(image, caption='', use_column_width=True)
         st.markdown("<p class='image-caption'>Merepresentasikan class healthy yang mendefinisikan daun yang sehat memiliki akurasi 96 persen dengan 1530 sample, class early_blight yang merepresentasikan daun yang terkena hama sehingga menimbulkan bintik-bintik pada daunnya. class tersebut memiliki akurasi 98 persen dari 2450 sample, dan yang terakhir adalah class late_blight yang merepresentasikan daun yang memiliki spot kering. Class tersebut memiliki akurasi sebesar 96 persen dari 2140 sample.</p>", unsafe_allow_html=True)
 
@@ -81,14 +81,14 @@ def home_page():
     col1.write(" ")
     with col1:
         st.write("Accuracy per EPOCH")
-        image = Image.open('/content/sample_data/image_daun/acc_epoch.jpg')
+        image = Image.open('/content/image_daun/acc_epoch.jpg')
         st.image(image, caption='', use_column_width=True)
         st.markdown("<p class='image-caption'>Pada table tersebut terdapat keterangan berupa tingkatan akurasinya yang memiliki nilai hampir 1 atau 100 persen.</p>", unsafe_allow_html=True)
 
     col3.write(" ")
     with col3:
         st.write("Loss per EPOCH")
-        image = Image.open('/content/sample_data/image_daun/loss_epoch.jpg')
+        image = Image.open('/content/image_daun/loss_epoch.jpg')
         st.image(image, caption='', use_column_width=True)
         st.markdown("<p class='image-caption'>Pada table tersebut terdapat keterangan berupa tingkatan Loss akurasi yang memiliki nilai hampir 1 atau 100 persen.</p>", unsafe_allow_html=True)
 
