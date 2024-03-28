@@ -8,8 +8,8 @@ from PIL import Image
 
 
 # Load model
-model1 = load_model('/content/model_paru.h5')
-model2 = load_model('/content/model_paru.h5')
+model1 = load_model('/content/assets/model_paru.h5')
+model2 = load_model('/content/assets/model_paru.h5')
 # Isi class_labels
 class_labels = ['normal', 'tubercolusis', 'pneunomia']
 
@@ -39,12 +39,12 @@ def home_page():
         unsafe_allow_html=True,
     )
     st.markdown("---")
-    image = Image.open('/content/Vege Healt.png')
-    st.image('Vege Healt.png', caption='')
+    image = Image.open('/content/assets/Banner Tuber.png')
+    st.image('Banner Tuber.png', caption='')
     st.write("")
     st.markdown("---")
-    image = Image.open('/content/Vege Tutor.png')
-    st.image('Vege Tutor.png', caption='')
+    image = Image.open('/content/assets/Totur Tuber.png')
+    st.image('Totur Tuber.png', caption='')
     st.write("")
 
     col1, col2, col3 = st.columns(3)
@@ -53,7 +53,7 @@ def home_page():
     col1.write(" ")
     with col1:
         st.write("Vocab Image")
-        image = Image.open('/content/vocab.jpg')
+        image = Image.open('/content/assets/vocab.jpg')
         st.image(image, caption="", use_column_width=True)
         st.markdown("<p class='image-caption'>Gambar di atas merupakan representasi dari split data model machine learning yang di mana pembagian pengujian yaitu 85:15. 85 persen untuk Training Samples dan 15 persen untuk Test Samples.</p>", unsafe_allow_html=True)
 
@@ -61,7 +61,7 @@ def home_page():
     col2.write(" ")
     with col2:
         st.write("Confusion Image")
-        image = Image.open('/content/confus.jpg')
+        image = Image.open('/content/assets/confus.jpg')
         st.image(image, caption='', use_column_width=True)
         st.markdown("<p class='image-caption'>Gambar yang berisikan tentang Skor Kepercayaan pada class dan prediksinya.</p>", unsafe_allow_html=True)
 
@@ -69,7 +69,7 @@ def home_page():
     col3.write(" ")
     with col3:
         st.write("Accuracy Class Image")
-        image = Image.open('/content/acc_class.jpg')
+        image = Image.open('/content/assets/acc_class.jpg')
         st.image(image, caption='', use_column_width=True)
         st.markdown("<p class='image-caption'>Merepresentasikan class healthy yang mendefinisikan daun yang sehat memiliki akurasi 96 persen dengan 1530 sample, class early_blight yang merepresentasikan daun yang terkena hama sehingga menimbulkan bintik-bintik pada daunnya. class tersebut memiliki akurasi 98 persen dari 2450 sample, dan yang terakhir adalah class late_blight yang merepresentasikan daun yang memiliki spot kering. Class tersebut memiliki akurasi sebesar 96 persen dari 2140 sample.</p>", unsafe_allow_html=True)
 
@@ -80,18 +80,18 @@ def home_page():
     col1.write(" ")
     with col1:
         st.write("Accuracy per EPOCH")
-        image = Image.open('/content/acc_epoch.jpg')
+        image = Image.open('/content/assets/acc_epoch.jpg')
         st.image(image, caption='', use_column_width=True)
         st.markdown("<p class='image-caption'>Pada table tersebut terdapat keterangan berupa tingkatan akurasinya yang memiliki nilai hampir 1 atau 100 persen.</p>", unsafe_allow_html=True)
 
     col3.write(" ")
     with col3:
         st.write("Loss per EPOCH")
-        image = Image.open('/content/loss_epoch.jpg')
+        image = Image.open('/content/assets/loss_epoch.jpg')
         st.image(image, caption='', use_column_width=True)
         st.markdown("<p class='image-caption'>Pada table tersebut terdapat keterangan berupa tingkatan Loss akurasi yang memiliki nilai hampir 1 atau 100 persen.</p>", unsafe_allow_html=True)
 
-# Fungsi untuk halaman Vegetable Health Predictions
+# Fungsi untuk halaman tubercolusis Predictions
 def predictions_page():
     st.title(" ")
     uploaded_image = st.file_uploader("Unggah gambar", type=["jpg", "jpeg", "png"])
@@ -132,15 +132,56 @@ def predictions_page():
 # Fungsi untuk halaman About Us
 def about_us_page():
     st.title("Halaman About Us")
-    # Tambahkan konten atau informasi tentang tim pengembang atau Anda di sini
+
+    team_members = [
+        {"name": "Adrian Nathanael K", "photo_url": "/content/assets/member/adrian/link_gambar_john.jpg", "npm": "202043502735"},
+        {"name": "Dandi Rizardi", "photo_url": "/content/assets/member/adrian/link_gambar_jane.jpg", "npm": "202043502223"},
+        {"name": "Jaka Ashputra", "photo_url": "/content/assets/member/adrian/link_gambar_david.jpg", "npm": "202043502220"},
+        {"name": "Ferdian D", "photo_url": "/content/assets/member/adrian/link_gambar_emily.jpg", "npm": "202043502814"},
+        {"name": "Fajar Pangestu A", "photo_url": "/content/assets/member/adrian/link_gambar_michael.jpg", "npm": "202043501987"},
+        {"name": "Jody Fermawan", "photo_url": "/content/assets/member/adrian/link_gambar_sarah.jpg", "npm": "202043501926"},
+    ]
+    
+     # Menghitung jumlah anggota tim
+    num_members = len(team_members)
+    
+    # Menentukan jumlah kolom dan baris dalam grid
+    num_cols = 3
+    num_rows = (num_members + num_cols - 1) // num_cols
+    
+    # Menampilkan setiap anggota tim dalam grid
+    for i in range(num_rows):
+        col1, col2, col3 = st.columns(3)  # Membuat 3 kolom
+        for j in range(num_cols):
+            idx = i * num_cols + j
+            if idx < num_members:
+                with eval(f"col{j+1}"):
+                     st.markdown(
+                        f"""
+                        <div style="
+                            border: 2px solid #ccc; 
+                            border-radius: 5px; 
+                            padding: 10px; 
+                            margin: 10px; 
+                            text-align: center;
+                        ">
+                            <p>Nama: {team_members[idx]['name']}</p>
+                            <img src="{team_members[idx]['photo_url']}" alt="Foto {team_members[idx]['name']}" style="max-width: 100%;">
+                            <p>NPM: {team_members[idx]['npm']}</p>
+                        </div>
+                        """,
+                        unsafe_allow_html=True
+                    )
+                     
+                     
+
+
 
 # Fungsi untuk footer
 def footer():
     st.title(" ")
     st.markdown("---")
-    st.write("© 2023 VEGE HEALTH. All rights reserved.")
-    st.write("Author: Fajar Pangestu Amandaru")
-    st.write("Contact us at: fajar.faps@gmail.com")
+    st.write("© 2024 Tubercolusis. All rights reserved.")
 
     # Tambahkan CSS untuk styling
     st.markdown(
@@ -166,10 +207,10 @@ def footer():
     st.markdown("</div>", unsafe_allow_html=True)
 
 # Konfigurasi halaman Streamlit
-st.set_page_config(page_title="VEGE HEALTH")
+st.set_page_config(page_title="Tubercolusis Predic")
 st.sidebar.title("Welcome!")
 options = ["Home", "Tubercolusis Predictions", "About Us"]
-selection = st.sidebar.selectbox("Yuk Explore !", options)
+selection = st.sidebar.selectbox("Yuk Explore Tubercolusis Predic!", options)
 # Tampilkan konten sesuai dengan pilihan
 if selection == "Home":
     home_page()
