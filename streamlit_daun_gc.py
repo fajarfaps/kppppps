@@ -60,30 +60,13 @@ def home_page():
     # Gambar yang vocab
     col2.write(" ")
     with col2:
-        st.write("Confusion Image")
-        image = Image.open('/content/confus.jpg')
-        st.image(image, caption='', use_column_width=True)
-        st.markdown("<p class='image-caption'>Gambar yang berisikan tentang Skor Kepercayaan pada class dan prediksinya.</p>", unsafe_allow_html=True)
-
-    # Gambar yang vocab
-    col3.write(" ")
-    with col3:
-        st.write("Accuracy Class Image")
-        image = Image.open('/content/acc_class.jpg')
-        st.image(image, caption='', use_column_width=True)
-        st.markdown("<p class='image-caption'>Merepresentasikan class healthy yang mendefinisikan daun yang sehat memiliki akurasi 96 persen dengan 1530 sample, class early_blight yang merepresentasikan daun yang terkena hama sehingga menimbulkan bintik-bintik pada daunnya. class tersebut memiliki akurasi 98 persen dari 2450 sample, dan yang terakhir adalah class late_blight yang merepresentasikan daun yang memiliki spot kering. Class tersebut memiliki akurasi sebesar 96 persen dari 2140 sample.</p>", unsafe_allow_html=True)
-
-    st.markdown("---")
-
-    col1, col2, col3 = st.columns(3)
-    
-    col1.write(" ")
-    with col1:
         st.write("Accuracy per EPOCH")
         image = Image.open('/content/acc_epoch.jpg')
         st.image(image, caption='', use_column_width=True)
         st.markdown("<p class='image-caption'>Pada table tersebut terdapat keterangan berupa tingkatan akurasinya yang memiliki nilai hampir 1 atau 100 persen.</p>", unsafe_allow_html=True)
-
+    
+       
+    # Gambar yang vocab
     col3.write(" ")
     with col3:
         st.write("Loss per EPOCH")
@@ -91,11 +74,30 @@ def home_page():
         st.image(image, caption='', use_column_width=True)
         st.markdown("<p class='image-caption'>Pada table tersebut terdapat keterangan berupa tingkatan Loss akurasi yang memiliki nilai hampir 1 atau 100 persen.</p>", unsafe_allow_html=True)
 
+    st.markdown("---")
+
+    col1, col2 = st.columns(2)
+    
+    col1.write(" ")
+    with col1:
+        st.write("Confusion Image")
+        image = Image.open('/content/confus.jpg')
+        st.image(image, caption='', use_column_width=True)
+        st.markdown("<p class='image-caption'>Gambar yang berisikan tentang Skor Kepercayaan pada class dan prediksinya.</p>", unsafe_allow_html=True)
+  
+
+    col3.write(" ")
+    with col2:
+        st.write("Accuracy Class Image")
+        image = Image.open('/content/acc_class.jpg')
+        st.image(image, caption='', use_column_width=True)
+        st.markdown("<p class='image-caption'>Merepresentasikan class healthy yang mendefinisikan daun yang sehat memiliki akurasi 96 persen dengan 1530 sample, class early_blight yang merepresentasikan daun yang terkena hama sehingga menimbulkan bintik-bintik pada daunnya. class tersebut memiliki akurasi 98 persen dari 2450 sample, dan yang terakhir adalah class late_blight yang merepresentasikan daun yang memiliki spot kering. Class tersebut memiliki akurasi sebesar 96 persen dari 2140 sample.</p>", unsafe_allow_html=True)
+
 
 # Fungsi untuk halaman tubercolusis Predictions
 def predictions_page():
     st.title(" ")
-    uploaded_image = st.file_uploader("Unggah gambar", type=["jpg", "jpeg", "png"])
+    uploaded_image = st.file_uploader("Unggah gambar yang ingin diprediksi", type=["jpg", "jpeg", "png"])
     st.title(" ")
 
     if uploaded_image is not None:
@@ -138,7 +140,7 @@ def about_us_page():
     
     with col1:
       st.write(" ")
-      st.markdown("<h3 style='text-align: center;'>Adrian Nathanael K</h3>", unsafe_allow_html=True)
+      st.markdown("<h3 style='text-align: center;'>Adrian Nathanael</h3>", unsafe_allow_html=True)
       image = Image.open('/content/adrian.jpg')
       st.image(image, caption='', use_column_width=True)
       st.markdown("<p class='image-caption' style='text-align: center;'>202043502735</p>", unsafe_allow_html=True)
@@ -164,8 +166,8 @@ def about_us_page():
     with col1:
       st.write(" ")
       st.markdown("<h3 style='text-align: center;'>Fajar Pangestu A</h3>", unsafe_allow_html=True)
-    #   image = Image.open('/content/adrian.jpg')
-    #   st.image(image, caption='', use_column_width=True)
+      image = Image.open('/content/pajar.jpg')
+      st.image(image, caption='', use_column_width=True)
       st.markdown("<p class='image-caption' style='text-align: center;'>202043501987</p>", unsafe_allow_html=True)
 
     with col2:
@@ -178,8 +180,8 @@ def about_us_page():
     with col3:
       st.write(" ")
       st.markdown("<h3 style='text-align: center;'>Jody Fermawan</h3>", unsafe_allow_html=True)
-    #   image = Image.open('/content/jaka.jpeg')
-    #   st.image(image, caption='', use_column_width=True)
+      image = Image.open('/content/jody.jpeg')
+      st.image(image, caption='', use_column_width=True)
       st.markdown("<p class='image-caption' style='text-align: center;'>202043501926</p>", unsafe_allow_html=True)
       
     st.markdown("---")
