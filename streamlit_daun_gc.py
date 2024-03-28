@@ -8,8 +8,8 @@ from PIL import Image
 
 
 # Load model
-model1 = load_model('/content/assets/model_paru.h5')
-model2 = load_model('/content/assets/model_paru.h5')
+model1 = load_model('/content/model_paru.h5')
+model2 = load_model('/content/model_paru.h5')
 # Isi class_labels
 class_labels = ['normal', 'tubercolusis', 'pneunomia']
 
@@ -39,12 +39,12 @@ def home_page():
         unsafe_allow_html=True,
     )
     st.markdown("---")
-    image = Image.open('/content/assets/Banner Tuber.png')
-    st.image('Banner Tuber.png', caption='')
+    image = Image.open('/content/Banner Tuber.jpg')
+    st.image('Banner Tuber.jpg', caption='')
     st.write("")
     st.markdown("---")
-    image = Image.open('/content/assets/Totur Tuber.png')
-    st.image('Totur Tuber.png', caption='')
+    image = Image.open('/content/Totur Tuber.jpg')
+    st.image('Totur Tuber.jpg', caption='')
     st.write("")
 
     col1, col2, col3 = st.columns(3)
@@ -53,7 +53,7 @@ def home_page():
     col1.write(" ")
     with col1:
         st.write("Vocab Image")
-        image = Image.open('/content/assets/vocab.jpg')
+        image = Image.open('/content/vocab.jpg')
         st.image(image, caption="", use_column_width=True)
         st.markdown("<p class='image-caption'>Gambar di atas merupakan representasi dari split data model machine learning yang di mana pembagian pengujian yaitu 85:15. 85 persen untuk Training Samples dan 15 persen untuk Test Samples.</p>", unsafe_allow_html=True)
 
@@ -61,7 +61,7 @@ def home_page():
     col2.write(" ")
     with col2:
         st.write("Confusion Image")
-        image = Image.open('/content/assets/confus.jpg')
+        image = Image.open('/content/confus.jpg')
         st.image(image, caption='', use_column_width=True)
         st.markdown("<p class='image-caption'>Gambar yang berisikan tentang Skor Kepercayaan pada class dan prediksinya.</p>", unsafe_allow_html=True)
 
@@ -69,7 +69,7 @@ def home_page():
     col3.write(" ")
     with col3:
         st.write("Accuracy Class Image")
-        image = Image.open('/content/assets/acc_class.jpg')
+        image = Image.open('/content/acc_class.jpg')
         st.image(image, caption='', use_column_width=True)
         st.markdown("<p class='image-caption'>Merepresentasikan class healthy yang mendefinisikan daun yang sehat memiliki akurasi 96 persen dengan 1530 sample, class early_blight yang merepresentasikan daun yang terkena hama sehingga menimbulkan bintik-bintik pada daunnya. class tersebut memiliki akurasi 98 persen dari 2450 sample, dan yang terakhir adalah class late_blight yang merepresentasikan daun yang memiliki spot kering. Class tersebut memiliki akurasi sebesar 96 persen dari 2140 sample.</p>", unsafe_allow_html=True)
 
@@ -80,16 +80,17 @@ def home_page():
     col1.write(" ")
     with col1:
         st.write("Accuracy per EPOCH")
-        image = Image.open('/content/assets/acc_epoch.jpg')
+        image = Image.open('/content/acc_epoch.jpg')
         st.image(image, caption='', use_column_width=True)
         st.markdown("<p class='image-caption'>Pada table tersebut terdapat keterangan berupa tingkatan akurasinya yang memiliki nilai hampir 1 atau 100 persen.</p>", unsafe_allow_html=True)
 
     col3.write(" ")
     with col3:
         st.write("Loss per EPOCH")
-        image = Image.open('/content/assets/loss_epoch.jpg')
+        image = Image.open('/content/loss_epoch.jpg')
         st.image(image, caption='', use_column_width=True)
         st.markdown("<p class='image-caption'>Pada table tersebut terdapat keterangan berupa tingkatan Loss akurasi yang memiliki nilai hampir 1 atau 100 persen.</p>", unsafe_allow_html=True)
+
 
 # Fungsi untuk halaman tubercolusis Predictions
 def predictions_page():
@@ -131,50 +132,57 @@ def predictions_page():
 
 # Fungsi untuk halaman About Us
 def about_us_page():
-    st.title("Halaman About Us")
+    st.title("About Us")
+  
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+      st.write(" ")
+      st.markdown("<h3 style='text-align: center;'>Adrian Nathanael Kalalo</h3>", unsafe_allow_html=True)
+      image = Image.open('/content/adrian.jpg')
+      st.image(image, caption='', use_column_width=True)
+      st.markdown("<p class='image-caption' style='text-align: center;'>202043502735</p>", unsafe_allow_html=True)
 
-    team_members = [
-        {"name": "Adrian Nathanael K", "photo_url": "/content/assets/member/adrian/link_gambar_john.jpg", "npm": "202043502735"},
-        {"name": "Dandi Rizardi", "photo_url": "/content/assets/member/adrian/link_gambar_jane.jpg", "npm": "202043502223"},
-        {"name": "Jaka Ashputra", "photo_url": "/content/assets/member/adrian/link_gambar_david.jpg", "npm": "202043502220"},
-        {"name": "Ferdian D", "photo_url": "/content/assets/member/adrian/link_gambar_emily.jpg", "npm": "202043502814"},
-        {"name": "Fajar Pangestu A", "photo_url": "/content/assets/member/adrian/link_gambar_michael.jpg", "npm": "202043501987"},
-        {"name": "Jody Fermawan", "photo_url": "/content/assets/member/adrian/link_gambar_sarah.jpg", "npm": "202043501926"},
-    ]
-    
-     # Menghitung jumlah anggota tim
-    num_members = len(team_members)
-    
-    # Menentukan jumlah kolom dan baris dalam grid
-    num_cols = 3
-    num_rows = (num_members + num_cols - 1) // num_cols
-    
-    # Menampilkan setiap anggota tim dalam grid
-    for i in range(num_rows):
-        col1, col2, col3 = st.columns(3)  # Membuat 3 kolom
-        for j in range(num_cols):
-            idx = i * num_cols + j
-            if idx < num_members:
-                with eval(f"col{j+1}"):
-                     st.markdown(
-                        f"""
-                        <div style="
-                            border: 2px solid #ccc; 
-                            border-radius: 5px; 
-                            padding: 10px; 
-                            margin: 10px; 
-                            text-align: center;
-                        ">
-                            <p>Nama: {team_members[idx]['name']}</p>
-                            <img src="{team_members[idx]['photo_url']}" alt="Foto {team_members[idx]['name']}" style="max-width: 100%;">
-                            <p>NPM: {team_members[idx]['npm']}</p>
-                        </div>
-                        """,
-                        unsafe_allow_html=True
-                    )
-                     
-                     
+    with col2:
+      st.write(" ")
+      st.markdown("<h3 style='text-align: center;'>Dandi Rizardi</h3>", unsafe_allow_html=True)
+      image = Image.open('/content/dandi.jpeg')
+      st.image(image, caption='', use_column_width=True)
+      st.markdown("<p class='image-caption' style='text-align: center;'>202043502223</p>", unsafe_allow_html=True)
 
+    with col3:
+      st.write(" ")
+      st.markdown("<h3 style='text-align: center;'>Jaka Ashputra</h3>", unsafe_allow_html=True)
+      image = Image.open('/content/jaka.jpeg')
+      st.image(image, caption='', use_column_width=True)
+      st.markdown("<p class='image-caption' style='text-align: center;'>202043502220</p>", unsafe_allow_html=True)
+
+    st.markdown("---")
+    
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+      st.write(" ")
+      st.markdown("<h3 style='text-align: center;'>Fajar Pangestu A</h3>", unsafe_allow_html=True)
+      image = Image.open('/content/adrian.jpg')
+      st.image(image, caption='', use_column_width=True)
+      st.markdown("<p class='image-caption' style='text-align: center;'>202043501987</p>", unsafe_allow_html=True)
+
+    with col2:
+      st.write(" ")
+      st.markdown("<h3 style='text-align: center;'>Ferdian D</h3>", unsafe_allow_html=True)
+      image = Image.open('/content/dandi.jpeg')
+      st.image(image, caption='', use_column_width=True)
+      st.markdown("<p class='image-caption' style='text-align: center;'>202043502814</p>", unsafe_allow_html=True)
+
+    with col3:
+      st.write(" ")
+      st.markdown("<h3 style='text-align: center;'>Jody Fermawan</h3>", unsafe_allow_html=True)
+      image = Image.open('/content/jaka.jpeg')
+      st.image(image, caption='', use_column_width=True)
+      st.markdown("<p class='image-caption' style='text-align: center;'>202043501926</p>", unsafe_allow_html=True)
+      
+    st.markdown("---")
 
 
 # Fungsi untuk footer
