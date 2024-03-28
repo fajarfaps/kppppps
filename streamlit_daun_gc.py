@@ -15,8 +15,8 @@ class_labels = ['normal', 'tubercolusis', 'pneunomia']
 
 # Fungsi untuk halaman Home
 def home_page():
-    st.header("Selamat Datang di Halaman Home, Mate!", divider='rainbow')
-    multi = ''' Aplikasi ini akan membantu kalian untuk memprediksi atau menentukan kesehatan sayuran pada pertanian. Kalian dapat melihat hasil prediksi dengan cara memilih foto sayuran yang akan ditentukan kesehatan, persentase kecocokan, dan deskripsi kesehatannya. Aplikasi ini diharapkan dapat membantu sektor pertanian untuk menentukan kesehatan sayurannya sehingga dapat menentukan apakah sayuran itu akan layak untuk diperjual belikan atau tidak.'''
+    st.header("Selamat Datang, di Mate!", divider='rainbow')
+    multi = ''' Aplikasi ini dirancang untuk membantu Anda memprediksi keberadaan penyakit tuberkulosis. Anda dapat melihat hasil prediksi dengan cara memilih foto sinar-X yang akan menentukan status kesehatan, persentase kecocokan, dan deskripsi kondisi kesehatan. Aplikasi ini diharapkan dapat membantu profesional kesehatan dalam menentukan penyakit tuberkulosis, sehingga dapat memberikan diagnosis lebih cepat dan akurat kepada pasien. '''
     st.markdown(multi)
 
     # Tambahkan CSS untuk styling
@@ -168,12 +168,12 @@ def footer():
 # Konfigurasi halaman Streamlit
 st.set_page_config(page_title="VEGE HEALTH")
 st.sidebar.title("Welcome!")
-options = ["Home", "Vegetable Health Predictions", "About Us"]
+options = ["Home", "Tubercolusis Predictions", "About Us"]
 selection = st.sidebar.selectbox("Yuk Explore !", options)
 # Tampilkan konten sesuai dengan pilihan
 if selection == "Home":
     home_page()
-elif selection == "Vegetable Health Predictions":
+elif selection == "Tubercolusis Predictions":
     predictions_page()
 else:
     about_us_page()
