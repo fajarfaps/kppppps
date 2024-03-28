@@ -166,7 +166,7 @@ def about_us_page():
     with col1:
       st.write(" ")
       st.markdown("<h3 style='text-align: center;'>Fajar Pangestu A</h3>", unsafe_allow_html=True)
-      image = Image.open('/content/pajar.jpg')
+      image = Image.open('/content/pajar.jpeg')
       st.image(image, caption='', use_column_width=True)
       st.markdown("<p class='image-caption' style='text-align: center;'>202043501987</p>", unsafe_allow_html=True)
 
