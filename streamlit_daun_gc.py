@@ -118,17 +118,17 @@ def predictions_page():
         st.image(uploaded_image, caption='Gambar yang diunggah', use_column_width=True)
         st.write(f'Kelas yang Terdeteksi : {class_label}')
         st.write(f'Skor Kepercayaan: {confidence_score * 100:.2f}%')
-        
 
-    elif class_labels == 'normal':
-        st.write('LU KAGA KENA PENYAKIT')
-        st.write('Tetap konsisten ya dalam menjaga sayurannya, sayuran kamu sehat tuh')
-    elif class_labels == '  tubercolusis':
-        st.write('LU KENA TB')
-    elif class_labels == 'pneunomia':
-        st.write('LU PNEUNOMIA')
-    elif class_labels == '-':
-        st.write('Objek tidak diketahui')
+        # Percabangan untuk menampilkan pesan berdasarkan kelas yang terdeteksi
+        if class_label == 'normal':
+            st.write('Anda Ga Kena Penyakit.....')
+            st.write('Tetap konsisten ya dalam menjaga sayurannya, sayuran kamu sehat tuh')
+        elif class_label == 'tuberculosis':
+            st.write('Anda Kena TB')
+        elif class_label == 'pneumonia':
+            st.write('Anda Pneumonia')
+        elif class_label == '-':
+            st.write('Objek tidak diketahui')
 
 # Fungsi untuk halaman About Us
 def about_us_page():
@@ -138,7 +138,7 @@ def about_us_page():
     
     with col1:
       st.write(" ")
-      st.markdown("<h3 style='text-align: center;'>Adrian Nathanael Kalalo</h3>", unsafe_allow_html=True)
+      st.markdown("<h3 style='text-align: center;'>Adrian Nathanael K</h3>", unsafe_allow_html=True)
       image = Image.open('/content/adrian.jpg')
       st.image(image, caption='', use_column_width=True)
       st.markdown("<p class='image-caption' style='text-align: center;'>202043502735</p>", unsafe_allow_html=True)
@@ -164,22 +164,22 @@ def about_us_page():
     with col1:
       st.write(" ")
       st.markdown("<h3 style='text-align: center;'>Fajar Pangestu A</h3>", unsafe_allow_html=True)
-      image = Image.open('/content/adrian.jpg')
-      st.image(image, caption='', use_column_width=True)
+    #   image = Image.open('/content/adrian.jpg')
+    #   st.image(image, caption='', use_column_width=True)
       st.markdown("<p class='image-caption' style='text-align: center;'>202043501987</p>", unsafe_allow_html=True)
 
     with col2:
       st.write(" ")
-      st.markdown("<h3 style='text-align: center;'>Ferdian D</h3>", unsafe_allow_html=True)
-      image = Image.open('/content/dandi.jpeg')
+      st.markdown("<h3 style='text-align: center;'>Ferdian Darma P</h3>", unsafe_allow_html=True)
+      image = Image.open('/content/ferdian.jpeg')
       st.image(image, caption='', use_column_width=True)
       st.markdown("<p class='image-caption' style='text-align: center;'>202043502814</p>", unsafe_allow_html=True)
 
     with col3:
       st.write(" ")
       st.markdown("<h3 style='text-align: center;'>Jody Fermawan</h3>", unsafe_allow_html=True)
-      image = Image.open('/content/jaka.jpeg')
-      st.image(image, caption='', use_column_width=True)
+    #   image = Image.open('/content/jaka.jpeg')
+    #   st.image(image, caption='', use_column_width=True)
       st.markdown("<p class='image-caption' style='text-align: center;'>202043501926</p>", unsafe_allow_html=True)
       
     st.markdown("---")
