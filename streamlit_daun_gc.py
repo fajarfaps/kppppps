@@ -39,11 +39,11 @@ def home_page():
         unsafe_allow_html=True,
     )
     st.markdown("---")
-    image = Image.open('/content/Banner Tuber.jpg')
+    image = Image.open('/content/banner_tb.jpg')
     st.image('Banner Tuber.jpg', caption='')
     st.write("")
     st.markdown("---")
-    image = Image.open('/content/Totur Tuber.jpg')
+    image = Image.open('/content/tutor_tb.jpg')
     st.image('Totur Tuber.jpg', caption='')
     st.write("")
 
