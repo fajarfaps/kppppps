@@ -8,10 +8,10 @@ from PIL import Image
 
 
 # Load model
-model1 = load_model('/content/model_paru.h5')
-model2 = load_model('/content/model_paru.h5')
+model1 = load_model('/content/keras_model.h5')
+model2 = load_model('/content/keras_model.h5')
 # Isi class_labels
-class_labels = ['normal', 'tubercolusis', 'pneunomia']
+class_labels = ['normal', 'tubercolusis', 'pneumonia']
 
 # Fungsi untuk halaman Home
 def home_page():
@@ -39,12 +39,12 @@ def home_page():
         unsafe_allow_html=True,
     )
     st.markdown("---")
-    image = Image.open('/content/banner_tb.jpg')
-    st.image('Banner Tuber.jpg', caption='')
+    image = Image.open('/content/Banner Tuber.JPG')
+    st.image('Banner Tuber.JPG', caption='')
     st.write("")
     st.markdown("---")
-    image = Image.open('/content/tutor_tb.jpg')
-    st.image('Totur Tuber.jpg', caption='')
+    image = Image.open('/content/Totur Tuber.JPG')
+    st.image('Totur Tuber.JPG', caption='')
     st.write("")
 
     col1, col2, col3 = st.columns(3)
@@ -123,14 +123,16 @@ def predictions_page():
 
         # Percabangan untuk menampilkan pesan berdasarkan kelas yang terdeteksi
         if class_label == 'normal':
-            st.write('Anda Ga Kena Penyakit.....')
-            st.write('Tetap konsisten ya dalam menjaga sayurannya, sayuran kamu sehat tuh')
-        elif class_label == 'tuberculosis':
-            st.write('Anda Kena TB')
+            st.write('Anda Tidak Terkena Penyakit.....')
+            st.write('Tetap konsisten ya dalam menjaga pola makan dan olahraga')
+        elif class_label == 'tubercolusis':
+            st.write('Anda Terkena TB')
         elif class_label == 'pneumonia':
-            st.write('Anda Pneumonia')
+            st.write('Anda Terkena Pneumonia')
         elif class_label == '-':
             st.write('Objek tidak diketahui')
+        
+
 
 # Fungsi untuk halaman About Us
 def about_us_page():
